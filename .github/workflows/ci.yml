@@ -9,7 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo message
-        run: echo "hi there"
+        run: |
+          {
+            echo "Job started"
+            echo "hi there"
+            echo "Job finished"
+          } 2>&1 | tee job.log
         
       - name: Send logs to n8n
         run: |
