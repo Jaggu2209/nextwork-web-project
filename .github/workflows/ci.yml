@@ -2,6 +2,7 @@ name: Echo Hi
 
 on:
   workflow_dispatch: 
+  push:
 
 jobs:
   say-hi:
