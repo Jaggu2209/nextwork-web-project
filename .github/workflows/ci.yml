@@ -11,3 +11,9 @@ jobs:
       - name: Echo message
         run: echo "hi there"
         
+      - name: Send logs to n8n
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d @<(jq -Rs '{logs: .}' job.log) \
+            https://unfalsified-stellularly-burl.ngrok-free.dev/webhook-test/github-logs
